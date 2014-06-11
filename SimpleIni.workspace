@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="SimpleIni.cbp" />
+		<Project filename="SimpleIni - Example1.cbp" />
+		<Project filename="SimpleIni - Example2.cbp" />
+		<Project filename="SimpleIni - Example3.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

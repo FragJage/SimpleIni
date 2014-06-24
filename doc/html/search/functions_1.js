@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deletekey',['DeleteKey',['../class_simple_ini.html#a2cbf3a6c6720ea447e8b393a762409de',1,'SimpleIni']]]
+  ['deletekey',['DeleteKey',['../class_simple_ini.html#a8937ed81f3d266c2e045bf71e881bd4c',1,'SimpleIni']]]
 ];

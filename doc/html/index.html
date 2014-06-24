@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 Introduction</h1>
-<p>This class allows you to easily manage configuration files with less than 10 methods.<br />
+<p>This class allows you to easily manage configuration files like .ini on Windows or .conf on Linux, with less than 10 methods.<br />
 To use, include in your project SimpleIni.cpp and <a class="el" href="_simple_ini_8h_source.html">SimpleIni.h</a>.</p>
 <h1><a class="anchor" id="feature_sec"></a>
 Features</h1>
@@ -89,6 +89,7 @@ Features</h1>
 <li>Browse sections and keys </li>
 <li>Comments identifed by ; or # </li>
 <li>Removal of whitespace around sections, keys and values. </li>
+<li>Keys defined before any section are placed in a section with blank name </li>
 <li>Don't support multi-line values. </li>
 <li>Comments on the section line are lost during the save method. </li>
 <li>Compile on Linux and Windows, Intel or ARM.</li>
@@ -113,14 +114,45 @@ Example</h1>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="class_simple_ini.html">SimpleIni</a> ini;</div>
 <div class="line"></div>
-<div class="line">    ini.<a class="code" href="class_simple_ini.html#a9f0a758938357b8b2d5dafe94416c024">Load</a>(<span class="stringliteral">&quot;examples\\example1.ini&quot;</span>);</div>
-<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;SGBD Host : &quot;</span> &lt;&lt; ini.<a class="code" href="class_simple_ini.html#a3217967727c4d4792a58b580759ecbd3">GetValue</a>&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;SGBD&quot;</span>, <span class="stringliteral">&quot;Host&quot;</span>, <span class="stringliteral">&quot;127.0.0.1&quot;</span>) &lt;&lt; endl;</div>
-<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Port TCP : &quot;</span> &lt;&lt; ini.<a class="code" href="class_simple_ini.html#a3217967727c4d4792a58b580759ecbd3">GetValue</a>&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;SGBD&quot;</span>, <span class="stringliteral">&quot;PortTCP&quot;</span>, 3306) &lt;&lt; endl;</div>
-<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Database : &quot;</span> &lt;&lt; ini.<a class="code" href="class_simple_ini.html#a3217967727c4d4792a58b580759ecbd3">GetValue</a>&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;SGBD&quot;</span>, <span class="stringliteral">&quot;BDD&quot;</span>, <span class="stringliteral">&quot;MyBDD&quot;</span>) &lt;&lt; endl;</div>
+<div class="line">    ini.<a class="code" href="class_simple_ini.html#ad2c963ebe54bead7c5af104952b48f8f">Load</a>(<span class="stringliteral">&quot;examples\\example1.ini&quot;</span>);</div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;SGBD Host : &quot;</span> &lt;&lt; ini.<a class="code" href="class_simple_ini.html#a93af4f66eabd013aaa7ab1242e6151e1">GetValue</a>&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;SGBD&quot;</span>, <span class="stringliteral">&quot;Host&quot;</span>, <span class="stringliteral">&quot;127.0.0.1&quot;</span>) &lt;&lt; endl;</div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Port TCP : &quot;</span> &lt;&lt; ini.<a class="code" href="class_simple_ini.html#a93af4f66eabd013aaa7ab1242e6151e1">GetValue</a>&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;SGBD&quot;</span>, <span class="stringliteral">&quot;PortTCP&quot;</span>, 3306) &lt;&lt; endl;</div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Database : &quot;</span> &lt;&lt; ini.<a class="code" href="class_simple_ini.html#a93af4f66eabd013aaa7ab1242e6151e1">GetValue</a>&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;SGBD&quot;</span>, <span class="stringliteral">&quot;BDD&quot;</span>, <span class="stringliteral">&quot;MyDB&quot;</span>) &lt;&lt; endl;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="licence_sec"></a>
+</div><!-- fragment --><h1><a class="anchor" id="FileFormat_sec"></a>
+File format</h1>
+<p>INI files are parsed line by line, each line may be one of the following : </p><ul>
+<li>A section as [section-name] </li>
+<li>A property as key = value </li>
+<li>A comment, begin by # or ; </li>
+<li>A blank line. <br />
+File example : <div class="fragment"><div class="line">Key01 = Value01</div>
+<div class="line">Key02 = Value02</div>
+<div class="line"></div>
+<div class="line">[Section1]</div>
+<div class="line">Key11 = Value11</div>
+<div class="line">Key12 = Value12</div>
+<div class="line"></div>
+<div class="line">[SGBD]</div>
+<div class="line"><span class="preprocessor">#Host by name or IP Adresse</span></div>
+<div class="line">Host = 127.0.0.1</div>
+<div class="line">#TCP Port of the DB Server</div>
+<div class="line">PortTCP = 3306</div>
+<div class="line"><span class="preprocessor">#Database</span></div>
+<div class="line"><span class="preprocessor">BDD = MyDB  ;Use MyDBdebug for debug</span></div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="WhatsNew1_sec"></a>
+What's New in version 1.0</h1>
+<ul>
+<li>Parameters optimisation with const &amp; when is possible </li>
+<li>New unit test : Comparison of a configuration file for Windows with the same for Linux </li>
+<li>Improvement of iterators, better seal with the inner workings of the class </li>
+<li>Use prefixe m_ on privates members</li>
+</ul>
+<h1><a class="anchor" id="licence_sec"></a>
 Licence</h1>
 <p><a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a> is free software : you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br />
 <br />
@@ -130,7 +162,7 @@ Licence</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 10 2014 23:39:29 for SimpleIni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 22:50:40 for SimpleIni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

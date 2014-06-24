@@ -19,12 +19,16 @@
 */
 /***************************************************************************************************/
 #include <iostream>
-#include <sstream>
 #include "SimpleIni.h"
 
 using namespace std;
 
-SimpleIni::SimpleIni(string filename)
+/**************************************************************************************************************/
+/***                                                                                                        ***/
+/*** Class SimpleIni                                                                                        ***/
+/***                                                                                                        ***/
+/**************************************************************************************************************/
+SimpleIni::SimpleIni(const string& filename)
 {
     if(filename!="")
     {
@@ -37,7 +41,7 @@ SimpleIni::~SimpleIni()
     Free();
 }
 
-bool SimpleIni::Load(string filename)
+bool SimpleIni::Load(const string& filename)
 {
     size_t pos;
     size_t pos2;
@@ -51,16 +55,16 @@ bool SimpleIni::Load(string filename)
 
 
     Free();
-    FileName = filename;
+    m_FileName = filename;
 
     //*** Ouverture du fichier
-    file.open(FileName.c_str(), ifstream::in);
+    file.open(m_FileName.c_str(), ifstream::in);
     if(!file) return false;
 
     //*** Parcours du fichier
 	while(getline(file, line))
     {
-        line = ParasitCar(line);
+        ParasitCar(line);
         if(line.empty()) continue;
         length = line.length();
 
@@ -77,7 +81,7 @@ bool SimpleIni::Load(string filename)
             section = Trim(line.substr(1, pos-1));
             if(comment!="")
             {
-                DescriptionMap[section][""] = comment;
+                m_DescriptionMap[section][""] = comment;
                 comment = "";
             }
             continue;
@@ -113,10 +117,10 @@ bool SimpleIni::Load(string filename)
 
         //*** Mémorisation
         key = Trim(line);
-        IniMap[section][key] = iniLine;
+        m_IniMap[section][key] = iniLine;
         if(comment!="")
         {
-            DescriptionMap[section][key] = comment;
+            m_DescriptionMap[section][key] = comment;
             comment = "";
         }
 
@@ -128,13 +132,13 @@ bool SimpleIni::Load(string filename)
 
 bool SimpleIni::Save()
 {
-    return SaveAs(FileName);
+    return SaveAs(m_FileName);
 }
 
-bool SimpleIni::SaveAs(string filename)
+bool SimpleIni::SaveAs(const string& filename)
 {
-	SectionIterator itSection;
-	KeyIterator itKey;
+	std::map<std::string, std::map<std::string, SimpleIni::IniLine> >::iterator itSection;
+	std::map<std::string, SimpleIni::IniLine>::iterator itKey;
     IniLine iniLine;
 	ofstream file;
 	bool first = true;
@@ -142,7 +146,7 @@ bool SimpleIni::SaveAs(string filename)
 	file.open(filename.c_str());
     if(!file) return false;
 
-	for(itSection=IniMap.begin(); itSection!=IniMap.end(); ++itSection)
+	for(itSection=m_IniMap.begin(); itSection!=m_IniMap.end(); ++itSection)
 	{
 	    if(!first) file << endl;
 	    SaveDescription(itSection->first, "", file);
@@ -167,12 +171,13 @@ bool SimpleIni::SaveAs(string filename)
 	}
 
 	file.close();
+
 	return true;
 }
 
 void SimpleIni::SaveDescription(string section, string key, ofstream &file)
 {
-    stringstream ss(DescriptionMap[section][key]);
+    stringstream ss(m_DescriptionMap[section][key]);
     string item;
     while (std::getline(ss, item, '\n'))
     {
@@ -182,13 +187,13 @@ void SimpleIni::SaveDescription(string section, string key, ofstream &file)
 
 void SimpleIni::Free()
 {
-    IniMap.clear();
+    m_IniMap.clear();
 }
 
-string SimpleIni::GetValue(string section, string key, string defaultValue)
+string SimpleIni::GetValue(const string& section, const string& key, const string& defaultValue)
 {
-	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=IniMap.find(section);
-	if(itSection == IniMap.end()) return defaultValue;
+	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=m_IniMap.find(section);
+	if(itSection == m_IniMap.end()) return defaultValue;
 
 	map<string, SimpleIni::IniLine>::iterator itKey=itSection->second.find(key);
 	if(itKey == itSection->second.end()) return defaultValue;
@@ -196,19 +201,19 @@ string SimpleIni::GetValue(string section, string key, string defaultValue)
 	return itKey->second.value;
 }
 
-void SimpleIni::SetValue(string section, string key, string value)
+void SimpleIni::SetValue(const string& section, const string& key, const string& value)
 {
     IniLine iniLine;
 
-	iniLine = IniMap[section][key];
+	iniLine = m_IniMap[section][key];
 	iniLine.value = value;
-	IniMap[section][key] = iniLine;
+	m_IniMap[section][key] = iniLine;
 }
 
-string SimpleIni::GetComment(string section, string key)
+string SimpleIni::GetComment(const string& section, const string& key)
 {
-	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=IniMap.find(section);
-	if(itSection == IniMap.end()) return "";
+	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=m_IniMap.find(section);
+	if(itSection == m_IniMap.end()) return "";
 
 	map<string, SimpleIni::IniLine>::iterator itKey=itSection->second.find(key);
 	if(itKey == itSection->second.end()) return "";
@@ -216,62 +221,60 @@ string SimpleIni::GetComment(string section, string key)
 	return itKey->second.comment;
 }
 
-void SimpleIni::SetComment(string section, string key, string comment)
+void SimpleIni::SetComment(const string& section, const string& key, const string& comment)
 {
     IniLine iniLine;
 
-	iniLine = IniMap[section][key];
+	iniLine = m_IniMap[section][key];
 	iniLine.comment = comment;
-	IniMap[section][key] = iniLine;
+	m_IniMap[section][key] = iniLine;
 }
 
-void SimpleIni::DeleteKey(string section, string key)
+void SimpleIni::DeleteKey(const string& section, const string& key)
 {
-    IniMap[section].erase(key);
+    m_IniMap[section].erase(key);
 }
 
 SimpleIni::SectionIterator SimpleIni::beginSection()
 {
-    return IniMap.begin();
+    return SectionIterator(m_IniMap.begin());
 }
 
 SimpleIni::SectionIterator SimpleIni::endSection()
 {
-    return IniMap.end();
+    return SectionIterator(m_IniMap.end());
 }
 
-SimpleIni::KeyIterator SimpleIni::beginKey(std::string section)
+SimpleIni::KeyIterator SimpleIni::beginKey(const std::string& section)
 {
-   	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=IniMap.find(section);
-	if(itSection == IniMap.end())
+   	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=m_IniMap.find(section);
+	if(itSection == m_IniMap.end())
     {
-        itSection = IniMap.begin();
-        return itSection->second.end();
+        itSection = m_IniMap.begin();
+        return KeyIterator(itSection->second.end());
     }
 
-    return itSection->second.begin();
+    return KeyIterator(itSection->second.begin());
 }
 
-SimpleIni::KeyIterator SimpleIni::endKey(std::string section)
+SimpleIni::KeyIterator SimpleIni::endKey(const std::string& section)
 {
-   	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=IniMap.find(section);
-	if(itSection == IniMap.end()) itSection = IniMap.begin();
+   	map<string, map<string, SimpleIni::IniLine> >::iterator itSection=m_IniMap.find(section);
+	if(itSection == m_IniMap.end()) itSection = m_IniMap.begin();
 
-    return itSection->second.end();
+    return KeyIterator(itSection->second.end());
 }
 
-string SimpleIni::ParasitCar(string str)
+void SimpleIni::ParasitCar(string& str)
 {
     size_t fin=str.size();
 
-    if(fin<1) return str;
+    if(fin<1) return;
 
-    if(str.at(fin-1)<' ') fin--;
-
-    return str.substr(0, fin);
+    if(str.at(fin-1)<' ') str.erase(fin-1);
 }
 
-string SimpleIni::Trim(string str)
+string SimpleIni::Trim(const string& str)
 {
     size_t deb=0;
     size_t fin=str.size();
@@ -292,4 +295,74 @@ string SimpleIni::Trim(string str)
     }
 
     return str.substr(deb, fin-deb);
+}
+
+/**************************************************************************************************************/
+/***                                                                                                        ***/
+/*** Class SectionIterator                                                                                  ***/
+/***                                                                                                        ***/
+/**************************************************************************************************************/
+SimpleIni::SectionIterator::SectionIterator()
+{
+}
+
+SimpleIni::SectionIterator::SectionIterator(std::map<std::string, std::map<std::string, SimpleIni::IniLine> >::iterator mapIterator)
+{
+    m_mapIterator = mapIterator;
+}
+
+const std::string& SimpleIni::SectionIterator::operator*()
+{
+    return m_mapIterator->first;
+}
+
+SimpleIni::SectionIterator SimpleIni::SectionIterator::operator++()
+{
+    ++m_mapIterator;
+    return *this;
+}
+
+bool SimpleIni::SectionIterator::operator==(SectionIterator const& a)
+{
+    return a.m_mapIterator==m_mapIterator;
+}
+
+bool SimpleIni::SectionIterator::operator!=(SectionIterator const& a)
+{
+    return a.m_mapIterator!=m_mapIterator;
+}
+
+/**************************************************************************************************************/
+/***                                                                                                        ***/
+/*** Class KeyIterator                                                                                      ***/
+/***                                                                                                        ***/
+/**************************************************************************************************************/
+SimpleIni::KeyIterator::KeyIterator()
+{
+}
+
+SimpleIni::KeyIterator::KeyIterator(std::map<std::string, SimpleIni::IniLine>::iterator mapIterator)
+{
+    m_mapIterator = mapIterator;
+}
+
+const std::string& SimpleIni::KeyIterator::operator*()
+{
+    return m_mapIterator->first;
+}
+
+SimpleIni::KeyIterator SimpleIni::KeyIterator::operator++()
+{
+    ++m_mapIterator;
+    return *this;
+}
+
+bool SimpleIni::KeyIterator::operator==(KeyIterator const& a)
+{
+    return a.m_mapIterator==m_mapIterator;
+}
+
+bool SimpleIni::KeyIterator::operator!=(KeyIterator const& a)
+{
+    return a.m_mapIterator!=m_mapIterator;
 }

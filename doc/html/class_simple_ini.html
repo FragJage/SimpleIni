@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -81,7 +81,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_simple_ini-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -94,113 +93,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="_simple_ini_8h_source.html">SimpleIni.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:abd92fc9692b2b35cb5d7ea7ec8358d4d"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak" />
-std::map&lt; std::string, <br class="typebreak" />
-SimpleIni::IniLine &gt;<br class="typebreak" />
- &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#abd92fc9692b2b35cb5d7ea7ec8358d4d">SectionIterator</a></td></tr>
-<tr class="memdesc:abd92fc9692b2b35cb5d7ea7ec8358d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator for sections.  <a href="#abd92fc9692b2b35cb5d7ea7ec8358d4d">More...</a><br /></td></tr>
-<tr class="separator:abd92fc9692b2b35cb5d7ea7ec8358d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee37d095614447382255820279d44335"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak" />
-SimpleIni::IniLine &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#aee37d095614447382255820279d44335">KeyIterator</a></td></tr>
-<tr class="memdesc:aee37d095614447382255820279d44335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator for keys.  <a href="#aee37d095614447382255820279d44335">More...</a><br /></td></tr>
-<tr class="separator:aee37d095614447382255820279d44335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini_1_1_key_iterator.html">KeyIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key iterator for <a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a> class.  <a href="class_simple_ini_1_1_key_iterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini_1_1_section_iterator.html">SectionIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Section iterator for <a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a> class.  <a href="class_simple_ini_1_1_section_iterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4713a3882ca7c254df6f406f903a01a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a4713a3882ca7c254df6f406f903a01a1">SimpleIni</a> (const std::string filename=&quot;&quot;)</td></tr>
-<tr class="memdesc:a4713a3882ca7c254df6f406f903a01a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of simpleIni.  <a href="#a4713a3882ca7c254df6f406f903a01a1">More...</a><br /></td></tr>
-<tr class="separator:a4713a3882ca7c254df6f406f903a01a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa036ab86e15e7f35cbb25ad900b0cf5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#aa036ab86e15e7f35cbb25ad900b0cf5f">SimpleIni</a> (const std::string &amp;filename=&quot;&quot;)</td></tr>
+<tr class="memdesc:aa036ab86e15e7f35cbb25ad900b0cf5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of <a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a>.  <a href="#aa036ab86e15e7f35cbb25ad900b0cf5f">More...</a><br /></td></tr>
+<tr class="separator:aa036ab86e15e7f35cbb25ad900b0cf5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f438423600efec7c736913cec2260b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a2f438423600efec7c736913cec2260b5">~SimpleIni</a> ()</td></tr>
-<tr class="memdesc:a2f438423600efec7c736913cec2260b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of simpleIni.  <a href="#a2f438423600efec7c736913cec2260b5">More...</a><br /></td></tr>
+<tr class="memdesc:a2f438423600efec7c736913cec2260b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of <a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a>.  <a href="#a2f438423600efec7c736913cec2260b5">More...</a><br /></td></tr>
 <tr class="separator:a2f438423600efec7c736913cec2260b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66ed01cf79d5351b561b41ec4112300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#ae66ed01cf79d5351b561b41ec4112300">Free</a> ()</td></tr>
 <tr class="memdesc:ae66ed01cf79d5351b561b41ec4112300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate memory.  <a href="#ae66ed01cf79d5351b561b41ec4112300">More...</a><br /></td></tr>
 <tr class="separator:ae66ed01cf79d5351b561b41ec4112300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f0a758938357b8b2d5dafe94416c024"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a9f0a758938357b8b2d5dafe94416c024">Load</a> (const std::string filename)</td></tr>
-<tr class="memdesc:a9f0a758938357b8b2d5dafe94416c024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a configuration file.  <a href="#a9f0a758938357b8b2d5dafe94416c024">More...</a><br /></td></tr>
-<tr class="separator:a9f0a758938357b8b2d5dafe94416c024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2c963ebe54bead7c5af104952b48f8f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#ad2c963ebe54bead7c5af104952b48f8f">Load</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:ad2c963ebe54bead7c5af104952b48f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a configuration file.  <a href="#ad2c963ebe54bead7c5af104952b48f8f">More...</a><br /></td></tr>
+<tr class="separator:ad2c963ebe54bead7c5af104952b48f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4304d381a294c92b95c9a8094ea6a01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#ac4304d381a294c92b95c9a8094ea6a01">Save</a> ()</td></tr>
 <tr class="memdesc:ac4304d381a294c92b95c9a8094ea6a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the configuration file.  <a href="#ac4304d381a294c92b95c9a8094ea6a01">More...</a><br /></td></tr>
 <tr class="separator:ac4304d381a294c92b95c9a8094ea6a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a6384532c7ea5d610522b525a74e581"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a2a6384532c7ea5d610522b525a74e581">SaveAs</a> (const std::string filename)</td></tr>
-<tr class="memdesc:a2a6384532c7ea5d610522b525a74e581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the configuration file as an other name.  <a href="#a2a6384532c7ea5d610522b525a74e581">More...</a><br /></td></tr>
-<tr class="separator:a2a6384532c7ea5d610522b525a74e581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3217967727c4d4792a58b580759ecbd3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a3217967727c4d4792a58b580759ecbd3">GetValue</a> (const std::string section, const std::string key, const std::string defaultValue)</td></tr>
-<tr class="memdesc:a3217967727c4d4792a58b580759ecbd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string value.  <a href="#a3217967727c4d4792a58b580759ecbd3">More...</a><br /></td></tr>
-<tr class="separator:a3217967727c4d4792a58b580759ecbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c964512dda123d0fddf9aaeb665e3a"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ac7c964512dda123d0fddf9aaeb665e3a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#ac7c964512dda123d0fddf9aaeb665e3a">GetValue</a> (const std::string section, const std::string key, const T defaultValue)</td></tr>
-<tr class="memdesc:ac7c964512dda123d0fddf9aaeb665e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a generic value.  <a href="#ac7c964512dda123d0fddf9aaeb665e3a">More...</a><br /></td></tr>
-<tr class="separator:ac7c964512dda123d0fddf9aaeb665e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e921887e290e7dcf4167172ff55da61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a6e921887e290e7dcf4167172ff55da61">SetValue</a> (const std::string section, const std::string key, const std::string value)</td></tr>
-<tr class="memdesc:a6e921887e290e7dcf4167172ff55da61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a string value.  <a href="#a6e921887e290e7dcf4167172ff55da61">More...</a><br /></td></tr>
-<tr class="separator:a6e921887e290e7dcf4167172ff55da61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9c834a757be35339ec3bda4bcfb252"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:afa9c834a757be35339ec3bda4bcfb252"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#afa9c834a757be35339ec3bda4bcfb252">SetValue</a> (const std::string section, const std::string key, const T value)</td></tr>
-<tr class="memdesc:afa9c834a757be35339ec3bda4bcfb252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a generic value.  <a href="#afa9c834a757be35339ec3bda4bcfb252">More...</a><br /></td></tr>
-<tr class="separator:afa9c834a757be35339ec3bda4bcfb252"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c1658bbe9d47343efe69e6ab84dd95a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a3c1658bbe9d47343efe69e6ab84dd95a">GetComment</a> (const std::string section, const std::string key)</td></tr>
-<tr class="memdesc:a3c1658bbe9d47343efe69e6ab84dd95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a comment.  <a href="#a3c1658bbe9d47343efe69e6ab84dd95a">More...</a><br /></td></tr>
-<tr class="separator:a3c1658bbe9d47343efe69e6ab84dd95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac1a0453e60e49cb5096ecfc07749a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a9ac1a0453e60e49cb5096ecfc07749a9">SetComment</a> (const std::string section, const std::string key, const std::string comment)</td></tr>
-<tr class="memdesc:a9ac1a0453e60e49cb5096ecfc07749a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a comment.  <a href="#a9ac1a0453e60e49cb5096ecfc07749a9">More...</a><br /></td></tr>
-<tr class="separator:a9ac1a0453e60e49cb5096ecfc07749a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cbf3a6c6720ea447e8b393a762409de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a2cbf3a6c6720ea447e8b393a762409de">DeleteKey</a> (const std::string section, const std::string key)</td></tr>
-<tr class="memdesc:a2cbf3a6c6720ea447e8b393a762409de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a key.  <a href="#a2cbf3a6c6720ea447e8b393a762409de">More...</a><br /></td></tr>
-<tr class="separator:a2cbf3a6c6720ea447e8b393a762409de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3aabb8c238ddf4469a43afe0030696c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini.html#abd92fc9692b2b35cb5d7ea7ec8358d4d">SectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#aa3aabb8c238ddf4469a43afe0030696c">beginSection</a> ()</td></tr>
+<tr class="memitem:aa64344a70e0114f3d747c8a39f08ae87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#aa64344a70e0114f3d747c8a39f08ae87">SaveAs</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:aa64344a70e0114f3d747c8a39f08ae87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the configuration file as an other name.  <a href="#aa64344a70e0114f3d747c8a39f08ae87">More...</a><br /></td></tr>
+<tr class="separator:aa64344a70e0114f3d747c8a39f08ae87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93af4f66eabd013aaa7ab1242e6151e1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a93af4f66eabd013aaa7ab1242e6151e1">GetValue</a> (const std::string &amp;section, const std::string &amp;key, const std::string &amp;defaultValue)</td></tr>
+<tr class="memdesc:a93af4f66eabd013aaa7ab1242e6151e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string value.  <a href="#a93af4f66eabd013aaa7ab1242e6151e1">More...</a><br /></td></tr>
+<tr class="separator:a93af4f66eabd013aaa7ab1242e6151e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03d0a0b8b40c75d4e333130d33bbaec"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ae03d0a0b8b40c75d4e333130d33bbaec"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#ae03d0a0b8b40c75d4e333130d33bbaec">GetValue</a> (const std::string &amp;section, const std::string &amp;key, const T &amp;defaultValue)</td></tr>
+<tr class="memdesc:ae03d0a0b8b40c75d4e333130d33bbaec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a generic value.  <a href="#ae03d0a0b8b40c75d4e333130d33bbaec">More...</a><br /></td></tr>
+<tr class="separator:ae03d0a0b8b40c75d4e333130d33bbaec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7145baa8ad07ddd340fbbcfa81b4ec1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a7145baa8ad07ddd340fbbcfa81b4ec1a">SetValue</a> (const std::string &amp;section, const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr class="memdesc:a7145baa8ad07ddd340fbbcfa81b4ec1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a string value.  <a href="#a7145baa8ad07ddd340fbbcfa81b4ec1a">More...</a><br /></td></tr>
+<tr class="separator:a7145baa8ad07ddd340fbbcfa81b4ec1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e49fc696d42eccc70aff21700cb30b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a84e49fc696d42eccc70aff21700cb30b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a84e49fc696d42eccc70aff21700cb30b">SetValue</a> (const std::string &amp;section, const std::string &amp;key, const T &amp;value)</td></tr>
+<tr class="memdesc:a84e49fc696d42eccc70aff21700cb30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a generic value.  <a href="#a84e49fc696d42eccc70aff21700cb30b">More...</a><br /></td></tr>
+<tr class="separator:a84e49fc696d42eccc70aff21700cb30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945433a1aa023493c1279bcfa6de8723"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a945433a1aa023493c1279bcfa6de8723">GetComment</a> (const std::string &amp;section, const std::string &amp;key)</td></tr>
+<tr class="memdesc:a945433a1aa023493c1279bcfa6de8723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a comment.  <a href="#a945433a1aa023493c1279bcfa6de8723">More...</a><br /></td></tr>
+<tr class="separator:a945433a1aa023493c1279bcfa6de8723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f9b728a35fe6523a0e2895b1646c143"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a0f9b728a35fe6523a0e2895b1646c143">SetComment</a> (const std::string &amp;section, const std::string &amp;key, const std::string &amp;comment)</td></tr>
+<tr class="memdesc:a0f9b728a35fe6523a0e2895b1646c143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a comment.  <a href="#a0f9b728a35fe6523a0e2895b1646c143">More...</a><br /></td></tr>
+<tr class="separator:a0f9b728a35fe6523a0e2895b1646c143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8937ed81f3d266c2e045bf71e881bd4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a8937ed81f3d266c2e045bf71e881bd4c">DeleteKey</a> (const std::string &amp;section, const std::string &amp;key)</td></tr>
+<tr class="memdesc:a8937ed81f3d266c2e045bf71e881bd4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a key.  <a href="#a8937ed81f3d266c2e045bf71e881bd4c">More...</a><br /></td></tr>
+<tr class="separator:a8937ed81f3d266c2e045bf71e881bd4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3aabb8c238ddf4469a43afe0030696c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini_1_1_section_iterator.html">SectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#aa3aabb8c238ddf4469a43afe0030696c">beginSection</a> ()</td></tr>
 <tr class="memdesc:aa3aabb8c238ddf4469a43afe0030696c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the first section iterator.  <a href="#aa3aabb8c238ddf4469a43afe0030696c">More...</a><br /></td></tr>
 <tr class="separator:aa3aabb8c238ddf4469a43afe0030696c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5403e414c02a64f1127dd321f0110df0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini.html#abd92fc9692b2b35cb5d7ea7ec8358d4d">SectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a5403e414c02a64f1127dd321f0110df0">endSection</a> ()</td></tr>
+<tr class="memitem:a5403e414c02a64f1127dd321f0110df0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini_1_1_section_iterator.html">SectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a5403e414c02a64f1127dd321f0110df0">endSection</a> ()</td></tr>
 <tr class="memdesc:a5403e414c02a64f1127dd321f0110df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the end section iterator.  <a href="#a5403e414c02a64f1127dd321f0110df0">More...</a><br /></td></tr>
 <tr class="separator:a5403e414c02a64f1127dd321f0110df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15ac7a13ad41abd7674a298ebf06c0c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini.html#aee37d095614447382255820279d44335">KeyIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a15ac7a13ad41abd7674a298ebf06c0c6">beginKey</a> (std::string section)</td></tr>
-<tr class="memdesc:a15ac7a13ad41abd7674a298ebf06c0c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the first key iterator.  <a href="#a15ac7a13ad41abd7674a298ebf06c0c6">More...</a><br /></td></tr>
-<tr class="separator:a15ac7a13ad41abd7674a298ebf06c0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49f2f0b80480e079d7cc8638feb6d94e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini.html#aee37d095614447382255820279d44335">KeyIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a49f2f0b80480e079d7cc8638feb6d94e">endKey</a> (std::string section)</td></tr>
-<tr class="memdesc:a49f2f0b80480e079d7cc8638feb6d94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the end key iterator.  <a href="#a49f2f0b80480e079d7cc8638feb6d94e">More...</a><br /></td></tr>
-<tr class="separator:a49f2f0b80480e079d7cc8638feb6d94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a977f1591b921ffb55732d7e5c0b03e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini_1_1_key_iterator.html">KeyIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a2a977f1591b921ffb55732d7e5c0b03e">beginKey</a> (const std::string &amp;section)</td></tr>
+<tr class="memdesc:a2a977f1591b921ffb55732d7e5c0b03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the first key iterator.  <a href="#a2a977f1591b921ffb55732d7e5c0b03e">More...</a><br /></td></tr>
+<tr class="separator:a2a977f1591b921ffb55732d7e5c0b03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dd55396ea8db057d689bc993a6a98aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_ini_1_1_key_iterator.html">KeyIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_ini.html#a4dd55396ea8db057d689bc993a6a98aa">endKey</a> (const std::string &amp;section)</td></tr>
+<tr class="memdesc:a4dd55396ea8db057d689bc993a6a98aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the end key iterator.  <a href="#a4dd55396ea8db057d689bc993a6a98aa">More...</a><br /></td></tr>
+<tr class="separator:a4dd55396ea8db057d689bc993a6a98aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class allows you to easily manage configuration files with less than 10 methods. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="aee37d095614447382255820279d44335"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::map&lt;std::string, SimpleIni::IniLine&gt;::iterator <a class="el" href="class_simple_ini.html#aee37d095614447382255820279d44335">SimpleIni::KeyIterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Iterator for keys on a section </p>
-
-</div>
-</div>
-<a class="anchor" id="abd92fc9692b2b35cb5d7ea7ec8358d4d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::map&lt;std::string, std::map&lt;std::string, SimpleIni::IniLine&gt; &gt;::iterator <a class="el" href="class_simple_ini.html#abd92fc9692b2b35cb5d7ea7ec8358d4d">SimpleIni::SectionIterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Iterator for sections </p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4713a3882ca7c254df6f406f903a01a1"></a>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa036ab86e15e7f35cbb25ad900b0cf5f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">SimpleIni::SimpleIni </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em> = <code>&quot;&quot;</code></td><td>)</td>
           <td></td>
         </tr>
@@ -212,7 +180,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Constructor of simpleIni, optionally can load configuration file <em>filename</em>, by Load method. If the Load method fails, an exception is raised. </p>
+<p>Constructor of <a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a>, optionally can load configuration file <em>filename</em>, by Load method. If the Load method fails, an exception is raised. </p>
 
 </div>
 </div>
@@ -228,19 +196,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Destructor of simpleIni, deallocate memory, like Free method. </p>
+<p>Destructor of <a class="el" href="class_simple_ini.html" title="Very simple class to manage configuration files. ">SimpleIni</a>, deallocate memory, like Free method. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a15ac7a13ad41abd7674a298ebf06c0c6"></a>
+<a class="anchor" id="a2a977f1591b921ffb55732d7e5c0b03e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_simple_ini.html#aee37d095614447382255820279d44335">KeyIterator</a> SimpleIni::beginKey </td>
+          <td class="memname"><a class="el" href="class_simple_ini_1_1_key_iterator.html">KeyIterator</a> SimpleIni::beginKey </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em></td><td>)</td>
           <td></td>
         </tr>
@@ -261,7 +229,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_simple_ini.html#abd92fc9692b2b35cb5d7ea7ec8358d4d">SectionIterator</a> SimpleIni::beginSection </td>
+          <td class="memname"><a class="el" href="class_simple_ini_1_1_section_iterator.html">SectionIterator</a> SimpleIni::beginSection </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -272,20 +240,20 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2cbf3a6c6720ea447e8b393a762409de"></a>
+<a class="anchor" id="a8937ed81f3d266c2e045bf71e881bd4c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void SimpleIni::DeleteKey </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>&#160;</td>
         </tr>
         <tr>
@@ -305,14 +273,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a49f2f0b80480e079d7cc8638feb6d94e"></a>
+<a class="anchor" id="a4dd55396ea8db057d689bc993a6a98aa"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_simple_ini.html#aee37d095614447382255820279d44335">KeyIterator</a> SimpleIni::endKey </td>
+          <td class="memname"><a class="el" href="class_simple_ini_1_1_key_iterator.html">KeyIterator</a> SimpleIni::endKey </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em></td><td>)</td>
           <td></td>
         </tr>
@@ -333,7 +301,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_simple_ini.html#abd92fc9692b2b35cb5d7ea7ec8358d4d">SectionIterator</a> SimpleIni::endSection </td>
+          <td class="memname"><a class="el" href="class_simple_ini_1_1_section_iterator.html">SectionIterator</a> SimpleIni::endSection </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -360,20 +328,20 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3c1658bbe9d47343efe69e6ab84dd95a"></a>
+<a class="anchor" id="a945433a1aa023493c1279bcfa6de8723"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">std::string SimpleIni::GetComment </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>&#160;</td>
         </tr>
         <tr>
@@ -394,26 +362,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3217967727c4d4792a58b580759ecbd3"></a>
+<a class="anchor" id="a93af4f66eabd013aaa7ab1242e6151e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">std::string SimpleIni::GetValue </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>defaultValue</em>&#160;</td>
         </tr>
         <tr>
@@ -435,7 +403,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac7c964512dda123d0fddf9aaeb665e3a"></a>
+<a class="anchor" id="ae03d0a0b8b40c75d4e333130d33bbaec"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -447,19 +415,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T SimpleIni::GetValue </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T&#160;</td>
+          <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>defaultValue</em>&#160;</td>
         </tr>
         <tr>
@@ -486,14 +454,14 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9f0a758938357b8b2d5dafe94416c024"></a>
+<a class="anchor" id="ad2c963ebe54bead7c5af104952b48f8f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool SimpleIni::Load </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -525,14 +493,14 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2a6384532c7ea5d610522b525a74e581"></a>
+<a class="anchor" id="aa64344a70e0114f3d747c8a39f08ae87"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool SimpleIni::SaveAs </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -548,26 +516,26 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9ac1a0453e60e49cb5096ecfc07749a9"></a>
+<a class="anchor" id="a0f9b728a35fe6523a0e2895b1646c143"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void SimpleIni::SetComment </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>comment</em>&#160;</td>
         </tr>
         <tr>
@@ -588,26 +556,26 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a6e921887e290e7dcf4167172ff55da61"></a>
+<a class="anchor" id="a7145baa8ad07ddd340fbbcfa81b4ec1a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void SimpleIni::SetValue </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -628,7 +596,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="afa9c834a757be35339ec3bda4bcfb252"></a>
+<a class="anchor" id="a84e49fc696d42eccc70aff21700cb30b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -640,19 +608,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">void SimpleIni::SetValue </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>section</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T&#160;</td>
+          <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -684,7 +652,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 10 2014 23:39:29 for SimpleIni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 22:50:40 for SimpleIni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

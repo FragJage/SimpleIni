@@ -4,7 +4,7 @@
 
 # CFLAGS_RELEASE := -02
 # CFLAGS_DEBUG := -g -Wall
-CFLAGS=-ggdb3 -O0 -DLINUX -I/tmp/SimpleIni/include
+CFLAGS=-ggdb3 -O0 -DLINUX -Iinclude
 LDFLAGS=-lm
 
 VPATH = src:test:examples

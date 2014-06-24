@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simpleini',['SimpleIni',['../class_simple_ini.html',1,'']]]
+  ['keyiterator',['KeyIterator',['../class_simple_ini_1_1_key_iterator.html',1,'SimpleIni']]]
 ];

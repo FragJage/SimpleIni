@@ -67,7 +67,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
-      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -76,7 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,16 +87,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 &#160;<ul>
 <li>beginKey()
-: <a class="el" href="class_simple_ini.html#a15ac7a13ad41abd7674a298ebf06c0c6">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a2a977f1591b921ffb55732d7e5c0b03e">SimpleIni</a>
 </li>
 <li>beginSection()
 : <a class="el" href="class_simple_ini.html#aa3aabb8c238ddf4469a43afe0030696c">SimpleIni</a>
 </li>
 <li>DeleteKey()
-: <a class="el" href="class_simple_ini.html#a2cbf3a6c6720ea447e8b393a762409de">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a8937ed81f3d266c2e045bf71e881bd4c">SimpleIni</a>
 </li>
 <li>endKey()
-: <a class="el" href="class_simple_ini.html#a49f2f0b80480e079d7cc8638feb6d94e">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a4dd55396ea8db057d689bc993a6a98aa">SimpleIni</a>
 </li>
 <li>endSection()
 : <a class="el" href="class_simple_ini.html#a5403e414c02a64f1127dd321f0110df0">SimpleIni</a>
@@ -106,28 +105,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_simple_ini.html#ae66ed01cf79d5351b561b41ec4112300">SimpleIni</a>
 </li>
 <li>GetComment()
-: <a class="el" href="class_simple_ini.html#a3c1658bbe9d47343efe69e6ab84dd95a">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a945433a1aa023493c1279bcfa6de8723">SimpleIni</a>
 </li>
 <li>GetValue()
-: <a class="el" href="class_simple_ini.html#a3217967727c4d4792a58b580759ecbd3">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a93af4f66eabd013aaa7ab1242e6151e1">SimpleIni</a>
+</li>
+<li>KeyIterator()
+: <a class="el" href="class_simple_ini_1_1_key_iterator.html#ad923eae4ddafbbd3306fc189acd33a32">SimpleIni::KeyIterator</a>
 </li>
 <li>Load()
-: <a class="el" href="class_simple_ini.html#a9f0a758938357b8b2d5dafe94416c024">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#ad2c963ebe54bead7c5af104952b48f8f">SimpleIni</a>
+</li>
+<li>operator!=()
+: <a class="el" href="class_simple_ini_1_1_key_iterator.html#a6f56d220aa684afdad8ad63f28fbf3c1">SimpleIni::KeyIterator</a>
+, <a class="el" href="class_simple_ini_1_1_section_iterator.html#ac9dd4ecefa4db610ab07f604f7dfb64a">SimpleIni::SectionIterator</a>
+</li>
+<li>operator*()
+: <a class="el" href="class_simple_ini_1_1_key_iterator.html#a28f26206b021e8ee8531ca30dfd47b10">SimpleIni::KeyIterator</a>
+, <a class="el" href="class_simple_ini_1_1_section_iterator.html#a2b01fce35828be2c8ca084247207fac1">SimpleIni::SectionIterator</a>
+</li>
+<li>operator++()
+: <a class="el" href="class_simple_ini_1_1_key_iterator.html#a7f3bfce9fdec6f7bcc2ceb1dba24b5e2">SimpleIni::KeyIterator</a>
+, <a class="el" href="class_simple_ini_1_1_section_iterator.html#a39bfd4d1dc78b4d3bb478acbdde3077a">SimpleIni::SectionIterator</a>
+</li>
+<li>operator==()
+: <a class="el" href="class_simple_ini_1_1_key_iterator.html#a78da47545066c64f324a7a27949ce33e">SimpleIni::KeyIterator</a>
+, <a class="el" href="class_simple_ini_1_1_section_iterator.html#a24846d3893348a4739d852dcf9d2149d">SimpleIni::SectionIterator</a>
 </li>
 <li>Save()
 : <a class="el" href="class_simple_ini.html#ac4304d381a294c92b95c9a8094ea6a01">SimpleIni</a>
 </li>
 <li>SaveAs()
-: <a class="el" href="class_simple_ini.html#a2a6384532c7ea5d610522b525a74e581">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#aa64344a70e0114f3d747c8a39f08ae87">SimpleIni</a>
+</li>
+<li>SectionIterator()
+: <a class="el" href="class_simple_ini_1_1_section_iterator.html#a4d92cfedbc7d4ab5252cac4e074ec722">SimpleIni::SectionIterator</a>
 </li>
 <li>SetComment()
-: <a class="el" href="class_simple_ini.html#a9ac1a0453e60e49cb5096ecfc07749a9">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a0f9b728a35fe6523a0e2895b1646c143">SimpleIni</a>
 </li>
 <li>SetValue()
-: <a class="el" href="class_simple_ini.html#a6e921887e290e7dcf4167172ff55da61">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#a7145baa8ad07ddd340fbbcfa81b4ec1a">SimpleIni</a>
 </li>
 <li>SimpleIni()
-: <a class="el" href="class_simple_ini.html#a4713a3882ca7c254df6f406f903a01a1">SimpleIni</a>
+: <a class="el" href="class_simple_ini.html#aa036ab86e15e7f35cbb25ad900b0cf5f">SimpleIni</a>
 </li>
 <li>~SimpleIni()
 : <a class="el" href="class_simple_ini.html#a2f438423600efec7c736913cec2260b5">SimpleIni</a>
@@ -136,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 10 2014 23:39:29 for SimpleIni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 22:50:40 for SimpleIni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

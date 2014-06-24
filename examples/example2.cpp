@@ -31,8 +31,6 @@ using namespace std;
 int main()
 {
     SimpleIni ini;
-    SimpleIni::SectionIterator itSection;
-    SimpleIni::KeyIterator itKey;
 
 
     if(!ini.Load("examples\\example2.ini"))
@@ -42,16 +40,16 @@ int main()
     }
 
     cout << "Liste des sections" << endl;
-    for (itSection = ini.beginSection(); itSection != ini.endSection(); ++itSection)
+    for (SimpleIni::SectionIterator itSection = ini.beginSection(); itSection != ini.endSection(); ++itSection)
     {
-        cout << itSection->first << endl;
+        cout << *itSection << endl;
     }
     cout << endl;
 
     cout << "Liste des cles de la section2" << endl;
-    for (itKey = ini.beginKey("section2"); itKey != ini.endKey("section2"); ++itKey)
+    for (SimpleIni::KeyIterator itKey = ini.beginKey("section2"); itKey != ini.endKey("section2"); ++itKey)
     {
-        cout << itKey->first << endl;
+        cout << *itKey << endl;
     }
 
     return 0;

@@ -1,4 +1,5 @@
-//TO DO : Compile multi-plateforme
+//TO DO : Surcharge du get/setValue sur un booleen (ON, TRUE, YES, OUI / OFF, FALSE, NO, NON) insensible à la cesse
+
 #include <iostream>
 #include "SimpleIni.h"
 
@@ -89,6 +90,37 @@ void Resultat(string myTest, bool myResult)
     cout << endl;
 }
 
+bool CompareFile(SimpleIni ini, SimpleIni ini2)
+{
+    SimpleIni::SectionIterator itSection;
+    SimpleIni::KeyIterator itKey;
+    SimpleIni::SectionIterator itSection2;
+    SimpleIni::KeyIterator itKey2;
+
+
+    itSection2 = ini2.beginSection();
+    for (itSection = ini.beginSection(); itSection != ini.endSection(); ++itSection)
+    {
+        if(itSection2==ini2.endSection()) return false;
+        if(*itSection!=*itSection2) return false;
+
+        itKey2 = ini2.beginKey(*itSection2);
+        for (itKey = ini.beginKey(*itSection); itKey != ini.endKey(*itSection); ++itKey)
+        {
+            if(itKey2==ini2.endKey(*itSection2)) return false;
+            if(*itKey!=*itKey2) return false;
+            if(ini.GetValue(*itSection, *itKey, ";")!=ini2.GetValue(*itSection2, *itKey2, "#")) return false;
+            if(ini.GetComment(*itSection, *itKey)!=ini2.GetComment(*itSection2, *itKey2)) return false;
+            ++itKey2;
+        }
+        if(itKey2!=ini2.endKey(*itSection2)) return false;
+        ++itSection2;
+    }
+    if(itSection2!=ini2.endSection()) return false;
+
+    return true;
+}
+
 bool TestLoadFichierInexistant()
 {
     SimpleIni ini;
@@ -103,9 +135,7 @@ bool TestLoadFichierExistant()
     SimpleIni ini;
     string pathFile;
 
-    pathFile = "test";
-    pathFile += OSSEP;
-    pathFile += "config.ini";
+    pathFile = "test"+string(OSSEP)+"config.ini";
     if(!ini.Load(pathFile))  return false;
     ini.Free();
     return true;
@@ -175,7 +205,7 @@ bool TestSectionIterator(SimpleIni ini)
 
     for (SimpleIni::SectionIterator itSection = ini.beginSection(); itSection != ini.endSection(); ++itSection)
     {
-        if(section[i]!=itSection->first) return false;
+        if(section[i]!=*itSection) return false;
         i++;
     }
     return true;
@@ -188,10 +218,8 @@ bool TestKeyIterator(SimpleIni ini)
 
     for (SimpleIni::KeyIterator itKey = ini.beginKey("section2"); itKey != ini.endKey("section2"); ++itKey)
     {
-        if(cle[i]!=itKey->first)
+        if(cle[i]!=*itKey)
         {
-            cout << "Lu -" << itKey->first << "-" << endl;
-            cout << "At -" << cle[i] << "-" << endl;
             return false;
         }
         i++;
@@ -202,55 +230,37 @@ bool TestKeyIterator(SimpleIni ini)
 bool TestSaveAs(SimpleIni ini)
 {
     SimpleIni ini2;
-    SimpleIni::SectionIterator itSection;
-    SimpleIni::KeyIterator itKey;
-    SimpleIni::SectionIterator itSection2;
-    SimpleIni::KeyIterator itKey2;
     string pathFile;
 
-    pathFile = "test";
-    pathFile += OSSEP;
-    pathFile += "getset2.ini";
+    pathFile = "test"+string(OSSEP)+"getset2.ini";
     remove(pathFile.c_str());
-    try
+    if(!ini.SaveAs(pathFile)) return false;
+    if(!ini2.Load(pathFile)) return false;
+
+    return CompareFile(ini, ini2);
+}
+
+bool TestWinLin()
+{
+    SimpleIni ini1;
+    SimpleIni ini2;
+    string pathFile;
+
+    pathFile = "test"+string(OSSEP)+"windows.ini";
+    if(!ini1.Load(pathFile))
     {
-        ini.SaveAs(pathFile);
-    }
-    catch(string const& errorMsg)
-    {
+        cout << "Impossible d'ouvrir " << pathFile << "." << endl;
         return false;
     }
 
-    try
+    pathFile = "test"+string(OSSEP)+"linux.conf";
+    if(!ini2.Load(pathFile))
     {
-        ini2.Load(pathFile);
-    }
-    catch(string const& errorMsg)
-    {
+        cout << "Impossible d'ouvrir " << pathFile << "." << endl;
         return false;
     }
 
-    itSection2 = ini2.beginSection();
-    for (itSection = ini.beginSection(); itSection != ini.endSection(); ++itSection)
-    {
-        if(itSection2==ini2.endSection()) return false;
-        if(itSection->first!=itSection2->first) return false;
-
-        itKey2 = ini2.beginKey(itSection2->first);
-        for (itKey = ini.beginKey(itSection->first); itKey != ini.endKey(itSection->first); ++itKey)
-        {
-            if(itKey2==ini2.endKey(itSection2->first)) return false;
-            if(itKey->first!=itKey2->first) return false;
-            if(itKey->second.value!=itKey2->second.value) return false;
-            if(itKey->second.comment!=itKey2->second.comment) return false;
-            ++itKey2;
-        }
-        if(itKey2!=ini2.endKey(itSection2->first)) return false;
-        ++itSection2;
-    }
-    if(itSection2!=ini2.endSection()) return false;
-
-    return true;
+    return CompareFile(ini1, ini2);
 }
 
 int main()
@@ -258,16 +268,13 @@ int main()
     SimpleIni ini;
     string pathFile;
 
-
     //--------------------------------------------------------------------------
     Titre("Test de la methode Load");
     Resultat("Sur un fichier inextistant",  TestLoadFichierInexistant());
     Resultat("Sur un fichier existant",     TestLoadFichierExistant());
 
     //--------------------------------------------------------------------------
-    pathFile = "test";
-    pathFile += OSSEP;
-    pathFile += "getset.ini";
+    pathFile = "test"+string(OSSEP)+"getset.ini";
 
     if(!ini.Load(pathFile))
     {
@@ -305,7 +312,42 @@ int main()
     Titre("Test de la methode SaveAs");
     Resultat("Fichier identique a l'original",  TestSaveAs(ini));
 
+    //--------------------------------------------------------------------------
+    Titre("Compare le meme fichier Windows et Linux");
+    Resultat("Fichiers identiques",  TestWinLin());
+
     ini.Free();
 
+/*    SimpleIni::SectionIterator itSection;
+
+    pathFile = "test"+string(OSSEP)+"getset.ini";
+
+    if(!ini.Load(pathFile))
+    {
+        cerr << "Impossible de charger le fichier " << pathFile << endl;
+        return -1;
+    }
+
+    itSection = ini.beginSection();
+    if(itSection == ini.beginSection())
+        cout << "Begin OK" << endl;
+    else
+        cout << "Begin KO" << endl;
+    cout << *itSection << endl;
+    ++itSection;
+    cout << *itSection << endl;
+    ++itSection;
+    cout << *itSection << endl;
+    ++itSection;
+    if(itSection == ini.endSection())
+        cout << "End OK" << endl;
+    else
+        cout << "End KO" << endl;
+
+    for (itSection = ini.beginSection(); itSection != ini.endSection(); ++itSection)
+    {
+        cout << *itSection << endl;
+    }
+    */
     return 0;
 }

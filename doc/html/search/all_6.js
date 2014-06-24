@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load',['Load',['../class_simple_ini.html#a9f0a758938357b8b2d5dafe94416c024',1,'SimpleIni']]]
+  ['load',['Load',['../class_simple_ini.html#ad2c963ebe54bead7c5af104952b48f8f',1,'SimpleIni']]]
 ];

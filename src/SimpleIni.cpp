@@ -19,6 +19,7 @@
 */
 /***************************************************************************************************/
 #include <iostream>
+#include <stdexcept>
 #include "SimpleIni.h"
 
 using namespace std;
@@ -28,17 +29,26 @@ using namespace std;
 /*** Class SimpleIni                                                                                        ***/
 /***                                                                                                        ***/
 /**************************************************************************************************************/
-SimpleIni::SimpleIni(const string& filename)
+SimpleIni::SimpleIni(const string& filename) : m_OptionCommentCharacters(";#")
 {
     if(filename!="")
     {
-        if(!Load(filename)) throw string("Unable to open the file "+filename+" in read mode.");
+        if(!Load(filename)) throw logic_error("Unable to open the file "+filename+" in read mode.");
     }
 }
 
 SimpleIni::~SimpleIni()
 {
     Free();
+}
+
+void SimpleIni::SetOptions(optionKey key, const std::string& value)
+{
+    switch(key)
+    {
+        case optionKey::Comment :
+            m_OptionCommentCharacters = value;
+    }
 }
 
 bool SimpleIni::Load(const string& filename)
@@ -88,10 +98,18 @@ bool SimpleIni::Load(const string& filename)
         }
 
         //*** Commentaire ?
-        pos = line.find_first_of(';');
-        pos2= line.find_first_of('#');
-        if( (pos!=string::npos) && (pos2!=string::npos) && (pos>pos2) ) pos = pos2;
-        if( (pos==string::npos) && (pos2!=string::npos) ) pos = pos2;
+        pos=string::npos;
+        for(unsigned int i = 0; i < m_OptionCommentCharacters.length(); ++i)
+        {
+            pos2 = line.find_first_of(m_OptionCommentCharacters[i]);
+            if(pos2==string::npos) continue;
+            if(pos==string::npos)
+            {
+                pos=pos2;
+                continue;
+            }
+            if(pos>pos2) pos = pos2;
+        }
         if(pos!=string::npos)
         {
             if(pos>0)

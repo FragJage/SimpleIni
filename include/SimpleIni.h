@@ -124,6 +124,8 @@ class SimpleIni
         };
 
     public:
+        enum optionKey {Comment};
+
         /// \brief    Iterator for sections
         /// \details  Iterator for sections return a string reference on section's name.
         class SectionIterator;
@@ -254,6 +256,8 @@ class SimpleIni
         /// \return   Iterator just beyond the last key in the section
         KeyIterator endKey(const std::string& section);
 
+        void SetOptions(optionKey key, const std::string& value);
+
     private:
         std::map<std::string, std::map<std::string, SimpleIni::IniLine> > m_IniMap;
         std::map<std::string, std::map<std::string, std::string> > m_DescriptionMap;
@@ -261,6 +265,7 @@ class SimpleIni
         void SaveDescription(std::string section, std::string key, std::ofstream &file);
         void ParasitCar(std::string& str);
         std::string Trim(const std::string& str);
+        std::string m_OptionCommentCharacters;
 };
 
 /// \brief    Section iterator for SimpleIni class
